@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Tommaso on 24/04/2018.
@@ -10,17 +12,41 @@ public class CheckPermutation {
 
     public static void main(String[] args) {
 
-        String testString1 = "we";
-        String testString2 = "ew";
+        String testString1 = "ciao a tutti";
+        String testString2 = "iutttaoaic  ";
         isPermutation(testString1, testString2);
+        isPermutationWithHash(testString1, testString2);
 
     }
 
-    private static void isPermutation(String firstString, String secondString) {
-        if (firstString.length() != secondString.length()) {
-            System.out.println("Not permutations");
+    private static void isPermutationWithHash(String firstString, String secondString) {
+
+        if (!checkLength(firstString, secondString)) {
+            System.out.println("No permutations");
             return;
         }
+
+        HashMap<Character, Integer> lettersCountFirstString = new HashMap<>();
+        HashMap<Character, Integer> lettersCountSecondString = new HashMap<>();
+        for (int i = 0; i < firstString.length(); i++) {
+            lettersCountFirstString.put(firstString.charAt(i), lettersCountFirstString.getOrDefault(firstString.charAt(i), 0) +1);
+            lettersCountSecondString.put(secondString.charAt(i), lettersCountSecondString.getOrDefault(secondString.charAt(i), 0) +1);
+        }
+
+        if (lettersCountFirstString.equals(lettersCountSecondString)) {
+            System.out.println("Yes permutations");
+            return;
+        }
+        System.out.println("No permutations");
+    }
+
+    private static void isPermutation(String firstString, String secondString) {
+
+        if (!checkLength(firstString, secondString)) {
+            System.out.println("No permutations");
+            return;
+        }
+
         char[] firstStringArray = firstString.toCharArray();
         char[] secondStringArray = secondString.toCharArray();
 
@@ -41,6 +67,10 @@ public class CheckPermutation {
             return;
         }
         System.out.println("No permutations");
+    }
+
+    private static boolean checkLength(String firstString, String secondString) {
+        return (firstString.length() == secondString.length());
     }
 
 
