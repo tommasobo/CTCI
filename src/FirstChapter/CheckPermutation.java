@@ -1,6 +1,7 @@
+package FirstChapter;
+
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Tommaso on 24/04/2018.

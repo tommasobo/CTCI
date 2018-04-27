@@ -1,3 +1,5 @@
+package FirstChapter;
+
 /**
  * Created by tomma on 24/04/2018.
  * Write a method to replace all space in a string with %20.

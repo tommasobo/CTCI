@@ -1,3 +1,5 @@
+package FirstChapter;
+
 /**
  * Created by tommaso on 25/04/2018.
  * Check if two strings differs by only one edit, which can be an insert of char, a removal of a char or an edit
